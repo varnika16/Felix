@@ -1,0 +1,63 @@
+<div fxLayout="column" fxLayoutGap="10px">
+    <div fxFlex >
+        <ol class="col-12 breadcrumb">
+          <li class="breadcrumb-item"><a routerLink="/home" routerLinkActive="active">Home</a></li>
+          <li class="breadcrumb-item"><a [routerLink]="['/category', mood.id]" routerLinkActive="active">{{mood.text}}</a></li>      
+          <li class="breadcrumb-item">Tv-Series</li>  
+        </ol>
+    </div>
+    <div fxFlex class="container">
+        <div class="col-12">
+            <h1>English</h1>
+            <hr>
+        </div>
+    </div>
+    <div [hidden]="mood || errMess" class="loader"></div>
+    <div class="offset-1 col-10" *ngIf="mood">
+		<mat-grid-list cols="3" rowHeight="200px" gutterSize="23px">
+			<a><mat-grid-tile class="img-wrapper boxx" *ngFor="let engSerie of mood.engSeries" [routerLink]="['/engseriesdetail', mood.id, engSerie.id]">
+				<img class="inner-img" height="300px" src="{{ BaseURL + engSerie.image}}" alt={{engSerie.name}}>
+				<div class="centered-before">
+					<h5> {{engSerie.name}} </h5>
+            </div>
+        </mat-grid-tile></a>
+		</mat-grid-list>
+    </div>
+    
+    <div fxFlex class="container">
+        <div class="col-12">
+            <h1>Hindi</h1>
+            <hr>
+        </div>
+    </div>
+    <div [hidden]="mood || errMess" class="loader"></div>
+    <div class="offset-1 col-10" *ngIf="mood">
+		<mat-grid-list cols="3" rowHeight="200px" gutterSize="23px">
+			<a><mat-grid-tile class="img-wrapper boxx" *ngFor="let hinSerie of mood.hinSeries" [routerLink]="['/hinseriesdetail', mood.id, hinSerie.id]">
+				<img class="inner-img" height="300px" src="{{ BaseURL + hinSerie.image}}" alt={{hinSerie.name}}>
+				<div class="centered-before">
+					<h5> {{hinSerie.name}} </h5>
+				</div>
+			</mat-grid-tile></a>
+		</mat-grid-list>
+    </div>
+    
+    <div fxFlex class="container">
+        <div class="col-12">
+            <h1>Korean</h1>
+            <hr>
+        </div>
+    </div>
+    <div [hidden]="mood || errMess" class="loader"></div>
+    <div class="offset-1 col-10" *ngIf="mood">
+		<mat-grid-list cols="3" rowHeight="200px" gutterSize="23px">
+			<a><mat-grid-tile class="img-wrapper boxx" *ngFor="let korSerie of mood.korSeries" [routerLink]="['/korseriesdetail', mood.id, korSerie.id]">
+				<img class="inner-img" height="300px" src="{{ BaseURL + korSerie.image}}" alt={{korSerie.name}}>
+                <div class="centered-before">
+                    <h5>{{korSerie.name}} </h5>
+				</div>
+			</mat-grid-tile></a>
+		</mat-grid-list>
+    </div>
+    
+</div>

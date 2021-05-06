@@ -1,0 +1,79 @@
+<div fxLayout="column" fxLayoutGap="10px">
+    <div fxFlex >
+        <ol class="col-12 breadcrumb">
+          <li class="breadcrumb-item"><a routerLink="/home" routerLinkActive="active">Home</a></li>
+          <li class="breadcrumb-item"><a [routerLink]="['/category', mood.id]" routerLinkActive="active">{{mood.text}}</a></li>      
+          <li class="breadcrumb-item">{{mood.categories[3].name}}</li>  
+        </ol>
+    </div>
+
+    <div class="container"
+        fxLayout="row wrap"
+        fxLayout.sm="column"
+        fxLayout.xs="column"
+        fxLayoutAlign.gt-md="space-around center"
+        fxLayoutGap="10px">
+    
+        <div fxFlex="100">
+            <div>
+              <h3 *ngIf="mood">{{ mood.categories[3].name }}</h3>
+              <hr>
+            </div>
+          </div>
+        <div fxFlex="50" *ngIf="mood">
+            <mat-card>
+              <mat-card-header>
+                <mat-card-title class="upper">
+                  <h5>Gamers Don't Fear The Apocalypse</h5>
+                </mat-card-title>
+              </mat-card-header>
+              <img class="boxx" mat-card-image src="{{ BaseURL + mood.categories[3].image}}" alt="Gaming">
+              <mat-card-actions class="move">
+                <button mat-button>LIKE</button>
+                <button mat-button>SHARE</button>
+                <span class="flex-spacer"></span>
+              </mat-card-actions>
+            </mat-card>
+          </div>
+
+          <div fxFlex="40" *ngIf="mood" class="back">
+            <div class="example-label"><h4>Play Online.</h4></div>
+              <div class="example-button-row"  class="buttons">
+                <div class="example-flex-container">
+                  <div class="example-button-container">
+                    <a href={{mood.games[0].link}} target='_blank'><button mat-raised-button class="gaping on">{{mood.games[0].name}}</button></a>
+                  </div>
+                  <div class="example-button-container">
+                    <a href={{mood.games[1].link}} target='_blank'><button mat-raised-button class="gaping on">{{mood.games[1].name}}</button></a>
+                  </div>
+                </div>
+              </div>
+              <hr>
+              <div class="example-label"><h4>Live Stream.</h4></div>
+              <div class="example-button-row" class="buttons">
+                <div class="example-flex-container">
+                  <div class="example-button-container">
+                    <a href={{mood.games[2].link}} target='_blank'><button mat-raised-button class="gaping yt">{{mood.games[2].name}}</button></a>
+                  </div>
+                  <div class="example-button-container">
+                    <a href={{mood.games[3].link}} target='_blank'><button mat-raised-button class="gaping yt">{{mood.games[3].name}}</button></a>
+                  </div>
+                </div>
+              </div>
+              <hr>
+              <div class="example-label"><h4>Go Offline.</h4></div>
+              <div class="example-button-row" class="buttons">
+                <div class="example-flex-container">
+                  <div class="example-button-container">
+                    <a href={{mood.games[5].link}} target='_blank'><button mat-raised-button class="gaping off">{{mood.games[5].name}}</button></a>
+                  </div>
+                  <div class="example-button-container">
+                    <a href={{mood.games[4].link}} target='_blank'><button mat-raised-button class="gaping off">{{mood.games[4].name}}</button></a>
+
+                  </div>
+                </div>
+              </div>
+          </div>
+    </div>
+    <div [hidden]="mood || errMess" class="loader"></div>
+</div>

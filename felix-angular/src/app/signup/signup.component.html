@@ -1,0 +1,38 @@
+<mat-toolbar class="tool">
+    SignUp
+  <span class="flex-spacer"></span>
+  <button mat-button mat-dialog-close>&times;</button>
+  </mat-toolbar>
+  <div class="space"></div>
+  <div *ngIf="errMess">
+    <h6 class="error">User Already Exists!</h6>
+  </div>
+  <div class="space"></div>
+  <form novalidate #signupForm="ngForm" (ngSubmit)="onSubmit()">
+    <mat-dialog-content>
+      <p>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="First Name" type="text" [(ngModel)]="newUser.firstname" name="firstname" #firstname="ngModel" required>
+          <mat-error *ngIf="firstname.errors?.required">First Name is required</mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Last Name" type="text" [(ngModel)]="newUser.lastname" name="lastname" #lastname="ngModel" required>
+            <mat-error *ngIf="lastname.errors?.required">Last Name is required</mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Username" type="text" [(ngModel)]="newUser.username" name="username" #username="ngModel" required>
+          <mat-error *ngIf="username.errors?.required">Username is required</mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Password" type="password" [(ngModel)]="newUser.password" name="password" #password  ="ngModel" required>
+          <mat-error *ngIf="password.errors?.required">Password is required</mat-error>
+        </mat-form-field>
+      </p>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+      <span class="flex-spacer"></span>
+      <button mat-button mat-dialog-close>Cancel</button>
+      <button type="submit" mat-button class="tool text-floral-white" [disabled]="signupForm.form.invalid">Register</button>
+    </mat-dialog-actions>
+  </form>
+  

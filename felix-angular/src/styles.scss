@@ -1,0 +1,105 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import 'variables';
+@import '../node_modules/font-awesome/css/font-awesome';
+@import url('https://fonts.googleapis.com/css?family=Lobster');
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cookie&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Domine:wght@600&display=swap');
+
+$lt-gray: #ddd;
+$background-dark: #512DA8;
+$background-light: #9575CD;
+$background-pale: #D1C4E9;
+$primary-color-dark:   #512DA8;
+$primary-color:        #673AB7;
+$primary-color-light:  #D1C4E9;
+$primary-color-text:   #FFFFFF;
+$accent-color:         #FFC107;
+$primary-text-color:   #212121;
+$secondary-text-color: #757575;
+$divider-color:        #BDBDBD;
+
+
+@mixin zero-margin($pad-up-down, $pad-left-right) {
+    margin: 0px auto;
+    padding: $pad-up-down $pad-left-right;
+}
+body::before {
+  content: ""; /* Important */
+  z-index: -1; /* Important */
+  position: fixed;
+  left: inherit;
+  top: inherit;
+  width: inherit;
+  height: inherit;
+  background-image: inherit;
+  background-size: cover;
+  //background-color: #7a7a00;
+  //filter: blur(5px);
+}
+/*body{
+ //@include: url("/assets/bg1.jpg");
+ background-size: 100%,100%;
+ position: absolute;
+ width: 100%;
+ height: 100%;
+ background-repeat: no-repeat;
+  background-attachment: fixed;
+}*/
+
+.container {
+    margin: 20px;
+    display:flex;
+}
+
+.background-primary {
+    background-color: $background-dark!important;
+  }
+.background-accent {
+    background-color: $accent-color!important;
+  }
+.text-floral-white {
+    color: floralwhite!important;
+}
+
+.flex-spacer {
+  flex: 1 1 auto;
+}
+
+//$my-emojis: ('🕛','🕐','🕑','🕒','🕓','🕔','🕕','🕖','🕗','🕘','🕙','🕚') !default; // Customise your emoji list here
+$my-emojis: (url("/assets/cheerful.png"),url("/assets/annoy.png"),url("/assets/bored.png"),url("/assets/depress.png"),url("/assets/fear.png"),url("/assets/romantic1.png"),url("/assets/anxious.png"), url("/assets/angry.png")); // Alternate list to play with
+
+@mixin emojiLoader($emoji-list, $loader-name: emojiLoader, $step-duration: 0.08s, $prefix: '') {
+ 
+  $emoji-count: length($emoji-list);
+  $steps: $emoji-count - 1;
+  content: $prefix nth($emoji-list, 1);
+  animation: #{$loader-name} #{$step-duration * $emoji-count} steps(#{$steps}) infinite forwards 0s;
+  
+  @keyframes #{$loader-name} { 
+    @for $e from 1 through $emoji-count { 
+      $this-percentage: 100 / $emoji-count * ($e - 1);
+      #{$this-percentage}% { content: $prefix nth($emoji-list, $e); }
+    }
+  }
+}
+
+.loader { 
+    position: relative;
+    
+    &::before {
+        position: relative;
+        width: 1em;
+        height: 1em;
+        left: 47.5%;
+        top: 50%;
+        font-size: 4rem;
+        text-align: center;
+        transform: translate(-50%, -50%);
+        @include emojiLoader($my-emojis);
+        
+    }
+}

@@ -1,0 +1,93 @@
+section {
+    display: table;
+  }
+  
+  .example-label {
+    display: table-cell;
+    font-size: 14px;
+    margin-left: 8px;
+    min-width: 120px;
+  }
+  
+  .example-button-row {
+    display: table-cell;
+    width: 490px;
+  }
+  
+  .example-button-row .mat-button-base {
+    margin: 8px 8px 8px 0;
+  }
+  
+  .example-flex-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .example-button-container {
+    display: flex;
+    justify-content: center;
+    width: 120px;
+    margin-left: 15px;
+  }
+  
+
+  .boxx{
+    transition: 0.3s;
+  }
+  .boxx:hover{
+    transform: scale(1.1);
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  }
+  .upper{
+    margin-left: 80px;
+  }
+  .move{
+    margin-left: 35%;
+  }
+  .back{
+    margin: 20px;
+    padding: 16px;
+  background-color: rgb(252, 252, 252);
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  }
+
+  .buttons{
+    //display: block;
+    margin-left: 40px;
+    margin-right: 20px;
+  }
+  .on:hover{
+    background-color: #16d605;
+    color: rgb(255, 255, 255);
+    button: focus 0;
+    font-weight: bold;
+    transition: 0.3s;
+    outline: none;
+    transform: scale(1.1);
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  }
+  .off:hover{
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    transition: 0.3s;
+    outline: none;
+    transform: scale(1.1);
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  }
+ 
+  .yt:hover{
+    background-color: #FF0000;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    transition: 0.3s;
+    outline: none;
+    transform: scale(1.1);
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  }
+
+  .gaping{
+    padding: 10px 30px; /* Some padding */
+  }

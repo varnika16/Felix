@@ -1,0 +1,69 @@
+.img-wrapper {  
+  width: 400px;
+  height: 400px;
+  overflow: hidden; 
+  
+}
+
+.inner-img {
+  transition: 0.3s;
+  filter: brightness(100%) blur(0px);
+  outline: none;
+}
+
+.inner-img:hover {
+  transform: scale(1.1);
+  outline: none;
+  filter: brightness(70%) blur(3px);
+}
+
+/* Other styling elements, that are not necessary for the example */
+
+.img-wrapper {
+  display: inline-block;
+  box-sizing: border-box;
+  outline: none;
+  //border: 1px solid rgb(138, 138, 138);
+}
+.boxx{
+  transition: 0.3s;
+  outline: none;
+}
+.boxx:hover{
+  transform: scale(1.1);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  outline: none;
+}
+
+.centered-before {
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 0;
+  height: 50px;
+  width: 600px;
+  text-align: center;
+  margin: 0;
+  background: rgba(255, 255, 255, 0.75);
+  color: black;
+  //font-family: 'Satisfy', cursive;
+  border-radius: 10px;
+  outline: none;
+  //border: 1px solid rgb(.2, .2, .2);
+  //filter: opacity(0);
+}
+
+.mat-grid-tile{
+  border-radius: 10px;
+  outline: none;
+}
+h5{
+  color: black;
+  margin-top: 10px;
+  font-family: 'Merriweather', serif;
+}
+h1{
+  font-family: 'Lobster', cursive;
+
+}

@@ -1,0 +1,63 @@
+<div fxLayout="column" fxLayoutGap="10px">
+    <div fxFlex >
+        <ol class="col-12 breadcrumb">
+          <li class="breadcrumb-item"><a routerLink="/home" routerLinkActive="active">Home</a></li>
+          <li class="breadcrumb-item"><a [routerLink]="['/category', mood.id]" routerLinkActive="active">{{mood.text}}</a></li>      
+          <li class="breadcrumb-item">Movies</li>  
+        </ol>
+    </div>
+
+    <div fxFlex class="container">
+        <div class="col-12">
+            <h1>English</h1>
+            <hr>
+        </div>
+    </div>
+    <div [hidden]="mood || errMess" class="loader"></div>
+    <div class="offset-1 col-10" *ngIf="mood">
+		<mat-grid-list cols="3" rowHeight="200px" gutterSize="23px">
+			<a><mat-grid-tile class="img-wrapper boxx" *ngFor="let engMovie of mood.engMovies" [routerLink]="['/engmoviesdetail', mood.id, engMovie.id]">
+				<img class="inner-img" height="300px" src="{{ BaseURL + engMovie.image}}" alt={{engMovie.name}}>
+				<div class="centered-before">
+					<h5> {{engMovie.name}} </h5>
+				</div>
+			</mat-grid-tile></a>
+		</mat-grid-list>
+    </div>
+    
+    <div fxFlex class="container">
+        <div class="col-12">
+            <h1>Hindi</h1>
+            <hr>
+        </div>
+    </div>
+    <div [hidden]="mood || errMess" class="loader"></div>
+    <div class="offset-1 col-10" *ngIf="mood">
+		<mat-grid-list cols="3" rowHeight="200px" gutterSize="23px">
+			<a><mat-grid-tile class="img-wrapper boxx" *ngFor="let hinMovie of mood.hinMovies" [routerLink]="['/hinmoviesdetail', mood.id, hinMovie.id]">
+				<img class="inner-img" height="300px" src="{{ BaseURL + hinMovie.image}}" alt={{hinMovie.name}}>
+				<div class="centered-before">
+					<h5> {{hinMovie.name}} </h5>
+				</div>>
+			</mat-grid-tile></a>
+		</mat-grid-list>
+    </div>
+    
+    <div fxFlex class="container">
+        <div class="col-12">
+            <h1>Punjabi</h1>
+            <hr>
+        </div>
+    </div>
+    <div [hidden]="mood || errMess" class="loader"></div>
+    <div class="offset-1 col-10" *ngIf="mood">
+		<mat-grid-list cols="3" rowHeight="200px" gutterSize="23px">
+			<a><mat-grid-tile class="img-wrapper boxx" *ngFor="let punMovie of mood.punMovies" [routerLink]="['/punmoviesdetail', mood.id, punMovie.id]">
+				<img class="inner-img" height="300px" src="{{ BaseURL + punMovie.image}}" alt={{punMovie.name}}>
+				<div class="centered-before">
+					<h5> {{punMovie.name}} </h5>
+				</div>
+			</mat-grid-tile></a>
+		</mat-grid-list>
+	</div>
+</div>

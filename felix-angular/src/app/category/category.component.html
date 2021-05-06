@@ -1,0 +1,28 @@
+<div fxLayout="column" fxLayoutGap="-10px">
+  <div fxFlex >
+      <ol class="col-12 breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/home" routerLinkActive="active">Home</a></li>
+        <li class="breadcrumb-item">{{mood.text}}</li>        
+      </ol>
+  </div>
+
+  <div fxFlex class="container">
+    
+      <h1>{{mood.text}}</h1>
+      <h3>{{mood.quote}}</h3>
+      <hr>
+    
+  </div>
+  
+  <div class="offset-2 col-8" *ngIf="mood">
+		<mat-grid-list  cols="2" rowHeight="200px" gutterSize="28px">
+			<a><mat-grid-tile class="img-wrapper boxx" *ngFor="let category of mood.categories" [routerLink]= "[category.link, mood.id]">
+				<img class="inner-img" height="500px"  src="{{ BaseURL + category.image}}" alt={{category.name}}>
+				<div class="centered-before">
+					<h5>{{category.name}}</h5>
+    </div>
+			</mat-grid-tile></a>
+    </mat-grid-list>
+  </div>
+  <div [hidden]="mood || errMess" class="loader"></div>
+</div>

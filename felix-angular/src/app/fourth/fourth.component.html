@@ -1,0 +1,45 @@
+<div fxLayout="column" fxLayoutGap="10px">
+    <div fxFlex >
+        <ol class="col-12 breadcrumb">
+          <li class="breadcrumb-item"><a routerLink="/home" routerLinkActive="active">Home</a></li>
+          <li class="breadcrumb-item"><a [routerLink]="['/category', mood.id]" routerLinkActive="active">{{mood.text}}</a></li>      
+          <li class="breadcrumb-item">{{mood.categories[3].name}}</li>  
+        </ol>
+    </div>
+
+    <div class="col-12"
+        fxLayout="row wrap"
+        fxLayout.sm="column"
+        fxLayout.xs="column"
+        fxLayoutAlign.gt-md="space-around center"
+        fxLayoutGap="10px">
+    
+        <div fxFlex="100">
+            <div>
+              <h3 *ngIf="mood">{{ mood.categories[3].name }}</h3>
+              <hr>
+            </div>
+        </div>
+              
+        <div *ngIf="mood" class="space">
+            <mat-card fxFlex="30" *ngFor="let four of mood.fourth">
+              
+                
+                <mat-card-title class="up">
+                  <h3>{{four.name}}</h3>
+                </mat-card-title>
+                <a href={{four.link}} target='_blank'>
+              <img class="boxx" height="300px" mat-card-image src="{{BaseURL + four.image}}" alt={{four.name}}></a>
+              <mat-card-content>
+                <h6><p>{{four.description}}</p></h6>
+              </mat-card-content>
+              <mat-card-actions class="move">
+                <button mat-button>LIKE</button>
+                <button mat-button>SHARE</button>
+                <span class="flex-spacer"></span>
+              </mat-card-actions>
+            </mat-card>
+          </div>
+        </div>
+      <div [hidden]="mood || errMess" class="loader"></div>
+</div>

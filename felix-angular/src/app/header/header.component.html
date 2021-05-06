@@ -1,0 +1,22 @@
+<div class="navbar">
+  <a *ngIf="!username" mat-button (click)="openLoginForm()"><mat-icon>login</mat-icon> Login</a>
+  <a *ngIf="!username" mat-button (click)="openSignupForm()"><mat-icon>person_add</mat-icon> SignUp</a>
+  <span *ngIf="username">{{username}}</span>
+  <a *ngIf="username" mat-button (click)="logOut()"><span class="fa fa-sign-out fa-lg"></span> Logout</a>
+    <span class="flex-spacer1" routerLink="/home">Felix</span>
+    <span class="flex-spacer"></span>
+    <a mat-button routerLink="/openworld" routerLinkActive="active"><mat-icon>public</mat-icon> Open World</a>
+    <div class="exclude">
+      
+      <div ngbDropdown class="d-inline-block">
+          <div class="down"><a mat-button routerLink="/category" routerLinkActive="active"><mat-icon>toc</mat-icon><span id="drop" ngbDropdownToggle> Moods</span></a></div>
+          <div ngbDropdownMenu aria-labelledby="drop" class="dropdown-content">
+            <button class="text" mat-flat-button *ngFor="let mood of moods" ngbDropdownItem [routerLink]="['/category', mood.id]">{{mood.text|uppercase}}</button>
+          </div>
+      </div>
+    </div>
+    <a mat-button routerLink="/home" routerLinkActive="active"><mat-icon>home</mat-icon> Home</a>
+</div>
+
+
+    

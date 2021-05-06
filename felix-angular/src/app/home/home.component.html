@@ -1,0 +1,72 @@
+<div class="col-12" >
+  
+  <ngb-carousel class="caro" *ngIf="images" data-ride="carousel" #carousel [interval]="5000">
+
+    <ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+        <img [src]="images[0]" alt="Random first">
+      </div>
+    </ng-template>
+
+    <ng-template ngbSlide >
+      <div class="picsum-img-wrapper">
+        <img [src]="images[1]" alt="Random second">
+      </div>
+    </ng-template>
+
+    <ng-template ngbSlide >
+      <div class="row">
+      <div class="picsum-img-wrapper col-4 up"> 
+        <a><img class="movimg" [src]="images[2]" alt="Random third" [routerLink]="['/engmoviesdetail/4/12']"></a>
+      </div>
+      <div class="picsum-img-wrapper col-4 up"> 
+        <a><img class="movimg" [src]="images[3]" alt="Random third" [routerLink]="['/musicdetail/1/0']"></a>
+      </div>
+      <div class="picsum-img-wrapper col-4 up"> 
+        <a><img class="movimg" [src]="images[4]" alt="Random third" [routerLink]="['/engseriesdetail/0/4']"></a>
+      </div>
+    </div>
+      
+    </ng-template>
+
+    <ng-template ngbSlide >
+      <div class="picsum-img-wrapper">
+        <img [src]="images[5]" alt="Random first">
+      </div>
+    </ng-template>
+
+    <ng-template ngbSlide >
+      <div class="picsum-img-wrapper">
+        <img [src]="images[6]" alt="Random first">
+      </div>
+      
+    </ng-template>
+  </ngb-carousel>
+  </div>
+  
+
+  <div class="container" fxLayout="column" fxLayoutGap="1px">
+  <div fxFlex>
+		<div class="how">
+			<h2><b>How You Feelin'??</b></h2>
+    </div>
+    </div>
+  
+  <div [hidden]="moods || errMess" class="loader"></div>
+  <div class="col-12">
+  <mat-grid-list cols="6" rowHeight="60px" class="container" gutterSize="30px">
+    <a><mat-grid-tile  class="box boxx"
+      *ngFor="let mood of moods"
+      [colspan]="mood.cols"
+      [rowspan]="mood.rows"
+      [style.background]="mood.color"
+      [routerLink]="['/category', mood.id]">
+      
+      <img height="200px" src="{{ BaseURL + mood.image}}" alt={{mood.text}}>
+       <div class="centered-before">
+        <h6> {{mood.text | uppercase}} </h6>
+      </div>
+    </mat-grid-tile></a>
+</mat-grid-list>
+</div>
+</div>
